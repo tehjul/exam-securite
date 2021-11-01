@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<script data-dapp-detection="">
+
+    function log() {
+        fetch("http://localhost:8000/connect", {
+            method: "POST",
+            body: JSON.stringify({
+                user: document.getElementById('user').value,
+                password: document.getElementById('password').value
+            })
+        }).then(res => res.json())
+            .then(res => {
+                document.cookie = "session=" + res['session']
+                document.getElementById('wrong-login').setAttribute('style', 'display:none')
+                document.location.href = './connected.html';
+            }).catch(() => {
+            document.getElementById('formContent').classList.add("shake");
+            setTimeout(function () {
+                document.getElementById('formContent').classList.remove("shake");
+                document.getElementById('wrong-login').setAttribute('style', 'display:block')
+            }, 250);
+        })
+    }
+</script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="resources/login.css">
+    <meta name="robots" content="noindex, follow">
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Sign In </h2>
+        <h2 class="inactive underlineHover">Sign Up </h2>
+        <div class="fadeIn first">
+            <img src="./resources/icons8-user-64.png" id="icon" alt="User Icon"/>
+        </div>
+        <input type="text" id="user" class="fadeIn second" name="user" placeholder="login">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <div>
+            <span id="wrong-login" class="error">wrong user/password</span>
+        </div>
+        <button class="fadeIn fourth" onclick="log()">Log In</button>
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    let headers = new Headers({
+        session: getCookie("session")
+    })
+    fetch("http://localhost:8000/connected", {
+        method: "GET",
+        headers: headers
+    }).then(() => document.location.href = './connected.html')
+        .catch()
+</script>
+</html>

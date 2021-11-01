@@ -1,0 +1,36 @@
+body {
+    margin: auto;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+p {
+    color: black;
+}
+
+header {
+    margin:  0;
+    padding: 0;
+    background-color: #466d53;
+}
+
+header h1 {
+    margin:  0;
+    padding: 10px;
+    background-color: #20bf6b;
+    color: aliceblue;
+}
+
+header, footer {
+    text-align: center;
+}
+footer p {
+    color: black;
+}
