@@ -1,7 +1,7 @@
 package connection
 
 import (
-	"../database"
+	"../dataacces"
 )
 
 type notSecuredQuery struct {
@@ -12,7 +12,7 @@ type securedQuery struct {
 }
 
 func getUser(id int) *ConnectedUser {
-	rows, _ := database.ExecQuery("SELECT ID, USER, PASSWORD FROM USER WHERE ID = ?", id)
+	rows, _ := dataacces.ExecQuery("SELECT ID, USER, PASSWORD FROM USER WHERE ID = ?", id)
 	if !rows.Next() {
 		return nil
 	}

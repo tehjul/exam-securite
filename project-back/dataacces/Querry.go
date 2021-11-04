@@ -1,7 +1,7 @@
-package database
+package dataacces
 
 import "database/sql"
 
 type Query interface {
-  GetResult() *sql.Rows
+	GetResult() *sql.Rows
 }
