@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/charleslgn/exam-securite/project-back/connection"
-	"github.com/charleslgn/exam-securite/project-back/customhttp"
+	"connection"
+	"customhttp"
 
 	"encoding/json"
 
 	"github.com/gorilla/mux"
+	_ "github.com/mattn/go-sqlite3"
 	"github.com/rs/cors"
 
 	"log"

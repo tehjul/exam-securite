@@ -3,24 +3,31 @@
 <script data-dapp-detection="">
 
     function log() {
-        fetch("http://localhost:8000/connect", {
+        fetch("http://localhost:8080/connect", {
             method: "POST",
             body: JSON.stringify({
                 user: document.getElementById('user').value,
                 password: document.getElementById('password').value
             })
-        }).then(res => res.json())
-            .then(res => {
+        }).then(async res => {
+            if (res.ok) {
                 document.cookie = "session=" + res['session']
                 document.getElementById('wrong-login').setAttribute('style', 'display:none')
-                document.location.href = './connected.html';
-            }).catch(() => {
-            document.getElementById('formContent').classList.add("shake");
-            setTimeout(function () {
-                document.getElementById('formContent').classList.remove("shake");
-                document.getElementById('wrong-login').setAttribute('style', 'display:block')
-            }, 250);
+                document.getElementById('formContent').innerHTML = await res.text();
+            } else {
+                shakeWindow();
+            }
+        }).catch(() => {
+            shakeWindow();
         })
+    }
+
+    function shakeWindow() {
+        document.getElementById('formContent').classList.add("shake");
+        setTimeout(function () {
+            document.getElementById('formContent').classList.remove("shake");
+            document.getElementById('wrong-login').setAttribute('style', 'display:block')
+        }, 250);
     }
 </script>
 <head>

@@ -26,4 +26,5 @@ Vous devez fork le projet. À l'intérieur du projet vous ajoutez :
 2. Cloner le projet `git clone https://github.com/CharlesLgn/exam-securite.git`
 3. Se Rendre dans le projet `cd exam-securite`
 4. Lancer le projet `docker-compose up`
+5. le site se trouve dans : `localhost:8000`
 

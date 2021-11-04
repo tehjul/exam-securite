@@ -1,7 +1,7 @@
 package connection
 
 import (
-	"../dataacces"
+	"dataacces"
 )
 
 type notSecuredQuery struct {

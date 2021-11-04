@@ -2,6 +2,7 @@ package connection
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -24,9 +25,19 @@ func Connect(w http.ResponseWriter, r *http.Request) {
 	if connectedUser == nil {
 		log.Println("connection error")
 		http.Error(w, "wrong user/password", http.StatusForbidden)
+		return
 	}
 	log.Println("connection success")
-	_ = json.NewEncoder(w).Encode(connectedUser)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, `<div id="formContent">
+        <div>
+            <p id="welcome" class="success"></p>
+        </div>
+        <div>
+            <span>You are now connected.</span>
+            <span>Welcome `+connectedUser.User+`</span>
+        </div>
+    </div>`)
 }
 
 type ConnectedUser struct {

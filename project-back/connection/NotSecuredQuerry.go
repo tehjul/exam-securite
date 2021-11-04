@@ -1,8 +1,8 @@
 package connection
 
 import (
+	"dataacces"
 	"database/sql"
-	"github.com/charleslgn/exam-securite/project-back/dataacces"
 	"log"
 )
 
