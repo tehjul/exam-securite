@@ -36,7 +36,7 @@ Vous devez fork le projet. À l'intérieur du projet vous ajoutez :
 4. lancer le site interter en ouvrant : `exam-securite/projet-front/intex.html`
 
 #### Sans docker (sur unix)
-1. instaler go
+1. instaler go ([lien d'instalation](https://golang.org/dl/))
 2. Cloner le projet `git clone https://github.com/CharlesLgn/exam-securite.git`
 3. rendez vous dans `exam-securite/projet-back`
 4. `go build -o securite_back`
