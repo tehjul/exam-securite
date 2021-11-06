@@ -21,6 +21,7 @@ Vous devez fork le projet. À l'intérieur du projet vous ajoutez :
   - le `miniprojet devra possédé un micro notice de lancemant`
 
 ### Lancement du projet :
+#### Avec docker
 
 1. Installer docker ([lien d'intalation](https://www.docker.com/get-started))
 2. Cloner le projet `git clone https://github.com/CharlesLgn/exam-securite.git`
@@ -28,3 +29,16 @@ Vous devez fork le projet. À l'intérieur du projet vous ajoutez :
 4. Lancer le projet `docker-compose up`
 5. le site se trouve dans : `localhost:8000`
 
+#### Sans docker (sur windows)
+1. Cloner le projet `git clone https://github.com/CharlesLgn/exam-securite.git`
+2. récupré le zip dans la release de github
+3. déziper le dossier et lancer l'executable
+4. lancer le site interter en ouvrant : `exam-securite/projet-front/intex.html`
+
+#### Sans docker (sur unix)
+1. instaler go
+2. Cloner le projet `git clone https://github.com/CharlesLgn/exam-securite.git`
+3. rendez vous dans `exam-securite/projet-back`
+4. `go build -o securite_back`
+5. `./securite_back`
+6. lancer le site interter en ouvrant : `exam-securite/projet-front/intex.html`
