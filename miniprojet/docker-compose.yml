@@ -2,12 +2,12 @@ version: '2'
 
 services:
   static-web:
-    build: project-front
+    build: front
     ports:
       - "8000:80"
     links:
       - app
   app:
-    build: project-back
+    build: back
     ports:
       - "8080:8080"
