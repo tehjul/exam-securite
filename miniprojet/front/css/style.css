@@ -1,0 +1,98 @@
+body {
+    margin: auto;
+    padding: 0;
+}
+
+main {
+    font-family: "Twemoji Awesome", serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+a {
+    width: 300px;
+    height: 400px;
+    transition: 0.3s;
+    text-decoration: none;
+    margin: 10px 20px;
+    color: #2d3436;
+    background-color: #dfe6e9;
+}
+
+a:hover {
+    box-shadow: 5px 5px 5px #c3c1c1;
+}
+
+a p {
+    margin: 0;
+    padding: 10px;
+    line-height: 1.4;
+}
+
+a h2 {
+    transition: 0.3s;
+    margin: 0;
+    padding: 10px;
+    background-color: #b2bec3;
+    text-align: center;
+    font-weight: bold;
+}
+
+a:hover h2 {
+    background-color: #636e72;
+}
+
+p {
+    color: black;
+}
+
+header {
+    margin:  0;
+    padding: 0;
+    background-color: #2d3436;
+}
+
+header h1 {
+    margin:  0;
+    padding: 10px;
+    background-color: #2d3436;
+    color: aliceblue;
+}
+
+header, footer {
+    text-align: center;
+}
+footer p {
+    color: black;
+}
+
+.content {
+    height: 250px;
+}
+
+.foot {
+    margin: 10px;
+}
+
+.grey-bar {
+    color:#000!important;
+    background-color:#f1f1f1!important;
+}
+
+.red-bar {
+    color:#fff!important;
+    background-color:#e74c3c!important;
+}
+
+.orange-bar {
+    color:#fff!important;
+    background-color:#e67e22!important;
+}
+
+.green-bar {
+    color:#fff!important;
+    background-color:#27ae60!important;
+}
