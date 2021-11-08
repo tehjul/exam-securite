@@ -7,6 +7,7 @@ import (
 type notSecuredQuery struct {
 	info ConnetionInfo
 }
+
 type securedQuery struct {
 	info ConnetionInfo
 }

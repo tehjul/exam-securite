@@ -1,10 +1,17 @@
-function LoginUnsecure() {
-    let login = document.login.Username.value;
-    let password = document.login.Password.value;
-    console.log(login);
-    if (login == "admin" && password == "4dm1n1str4t0r") {
-        window.location.replace("success.html");
-    } else {
-        alert("Login ou mot de passe incorrect");
-    }
+async function LoginUnsecure() {
+    let message = document.login.message.value;
+    fetch("http://localhost:8080/connect", {
+        method: "POST",
+        body: JSON.stringify({
+            user: document.login.Username.value,
+            password: document.login.Password.value
+        })
+    }).then(async res => {
+        if (res.ok) {
+            document.cookie = "session=" + res['session']
+            document.getElementById("main").innerHTML = "<p> Login successfull </p><p>"+message+"</p>";
+        } else {
+            document.getElementById("main").innerHTML = "<p> Login failed </p><p>"+message+"</p>";
+        }
+    })
 }

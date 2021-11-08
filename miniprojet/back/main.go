@@ -17,11 +17,8 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	customhttp.HandleFunc(router, "/connect/{user}/{psw}", Connect).Methods("GET")
-	customhttp.HandleFunc(router, "/user-agent", UserAgent).Methods("GET")
-	customhttp.HandleFunc(router, "/comment", GetComments).Methods("GET")
-	customhttp.HandleFunc(router, "/comment", AddComments).Methods("POST")
 	customhttp.HandleFunc(router, "/connect", connection.Connect).Methods("POST")
+	customhttp.HandleFunc(router, "/connectsecure", connection.ConnectSecure).Methods("POST")
 
 	log.Println("Server start !")
 	log.Fatal(http.ListenAndServe(":8080", cors.Default().Handler(router)))
